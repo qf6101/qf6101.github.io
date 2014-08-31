@@ -11,10 +11,10 @@ highlighter: pygments
 title : Blog of Feng Qian
 tagline: Site Tagline
 author :
-  name : Feng Qian
-  email : qf6101@gmail.com
+  name : Feng Qian 钱烽
+  email : qf6101 at gmail.com
   github : qf6101
-#  twitter : username
+  scholar : "http://scholar.google.com/citations?user=5KurcogAAAAJ&hl=en"
 #  feedburner : feedname
 
 # The production_url is only used when full-domain names are needed
