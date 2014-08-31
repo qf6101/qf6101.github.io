@@ -10,6 +10,16 @@ tags : [gitpage, jekyll, jekyll-bootstrap]
 
 本文简要描述了如何利用jekyll-bootstrap搭建一个基于gitpage (github page)的个人站点，搭建的环境是ubuntu。
 
+##Basic Concepts
+
+> **git:**	类似cvs、svn的版本控制软件。
+ 
+> **github:**	git的托管网站。
+
+> **jekyll:**	将符合它自身约定的源码(e.g., markdown language)转成静态网站的工具。
+
+> **jekyll-bootstrap:**	jekyll的模板框架，包含一些现成的模板，也可以基于它自定义模板。
+
 ##Key steps
 
 (1) 按照[github pages](https://pages.github.com/)官网说明建立一个github托管的git repository。尽量选择user site，而不是project site，否则jekyll-bootstrap可能会产生BASE_PATH设置导致的路径不一致问题。
