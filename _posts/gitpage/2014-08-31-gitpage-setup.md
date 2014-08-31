@@ -2,7 +2,7 @@
 layout: post
 category : gitpage
 tagline: "Supporting tagline"
-tags : [gitpage, jekyll, jekyll-bootstrap]
+tags : [github page, jekyll, jekyll-bootstrap]
 ---
 {% include JB/setup %}
 
@@ -16,9 +16,17 @@ tags : [gitpage, jekyll, jekyll-bootstrap]
  
 > github:	git的托管网站。
 
-> jekyll:	将符合它自身约定的源码(e.g., markdown language)转成静态网站的工具。
+> github page:	github提供的静态网站服务，采用jekyll解析用户提交的源码。
+
+> jekyll:	将符合自身约定的源码(e.g., markdown language)转成静态网站的ruby工具。
 
 > jekyll-bootstrap:	jekyll的模板框架，包含一些现成的模板，也可以基于它自定义模板。
+
+##Motivations
+
+(1) 为什么使用github page空间？只支持静态网页，适合作为博客空间。但相比传统博客服务 (e.g., csdn blog)，又更具灵活性。
+
+(2) 为什么使用jekyll？github page支持jekyll; markdown有那么点类似于latex，把内容与格式分开。
 
 ##Key steps
 
@@ -37,3 +45,11 @@ tags : [gitpage, jekyll, jekyll-bootstrap]
 (4) 根据个人需要，修改\$project_root\$/_config.yml、\$project_root\$/_includes/themes/the-program/default.html等页面中的内容。详细说明参见[jekyll-bootstrap](http://jekyllbootstrap.com/)官网。
 
 (5) 在jekyll serve或者sublime的markdown preview插件(可以使用[made-of-code](https://github.com/kumarnitin/made-of-code-tmbundle) color scheme)中预览下效果，最后把项目发布到早先建立的git repository中。
+
+##Miscellaneous
+
+技术博客其实就是技术日记，即使没有其他人看，坚持写，对自己的技术成长也仍然很有帮助。找工作时，也可以作为自己能力的proofs。个人觉得，写技术博客，最好采取下面两种策略。
+
+(1) 把长的内容写短。例如，用简短的篇幅讲清楚一篇论文的思想和方法。
+
+(2) 把短的内容写长。例如，把论文中的晦涩内容一层层解释清楚 (可以阅读相关的源码)。

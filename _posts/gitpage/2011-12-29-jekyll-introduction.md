@@ -2,7 +2,7 @@
 layout: post
 category : gitpage
 tagline: "Supporting tagline"
-tags : [github, gitpage, jekyll]
+tags : [github, github page, jekyll]
 ---
 {% include JB/setup %}
 
