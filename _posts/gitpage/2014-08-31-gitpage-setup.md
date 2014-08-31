@@ -18,10 +18,11 @@ tags : [gitpage, jekyll, jekyll-bootstrap]
 
 (3) 在shell中clone一个jekyll-bootstrap项目，并安装一个模板 (本文选择the-program)，命令如下。
 
-`git clone https://github.com/plusjade/jekyll-bootstrap.git
+```
+git clone https://github.com/plusjade/jekyll-bootstrap.git
 rake theme:install git="https://github.com/jekyllbootstrap/theme-the-program.git"
-find . -name ".git" | xargs rm -Rf    #删除jekyll-bootstrap的git配置`
-
+find . -name ".git" | xargs rm -Rf    #删除jekyll-bootstrap的git配置
+```
 (4) 根据个人需要，修改\$project_root\$/_config.yml、\$project_root\$/_includes/themes/the-program/default.html等页面中的内容。详细说明参见[jekyll-bootstrap](http://jekyllbootstrap.com/)官网。
 
 (5) 在jekyll serve中预览下效果，最后把项目发布到早先建立的git repository中。
