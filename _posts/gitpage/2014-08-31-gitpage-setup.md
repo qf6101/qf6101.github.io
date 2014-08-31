@@ -12,13 +12,13 @@ tags : [gitpage, jekyll, jekyll-bootstrap]
 
 ##Basic Concepts
 
-> **git:**	类似cvs、svn的版本控制软件。
+> git:	类似cvs、svn的版本控制软件。
  
-> **github:**	git的托管网站。
+> github:	git的托管网站。
 
-> **jekyll:**	将符合它自身约定的源码(e.g., markdown language)转成静态网站的工具。
+> jekyll:	将符合它自身约定的源码(e.g., markdown language)转成静态网站的工具。
 
-> **jekyll-bootstrap:**	jekyll的模板框架，包含一些现成的模板，也可以基于它自定义模板。
+> jekyll-bootstrap:	jekyll的模板框架，包含一些现成的模板，也可以基于它自定义模板。
 
 ##Key steps
 
