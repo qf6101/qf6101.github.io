@@ -26,4 +26,4 @@ tags : [gitpage, jekyll, jekyll-bootstrap]
 
 (4) 根据个人需要，修改\$project_root\$/_config.yml、\$project_root\$/_includes/themes/the-program/default.html等页面中的内容。详细说明参见[jekyll-bootstrap](http://jekyllbootstrap.com/)官网。
 
-(5) 在jekyll serve中预览下效果，最后把项目发布到早先建立的git repository中。
+(5) 在jekyll serve或者sublime的markdown preview插件中预览下效果，最后把项目发布到早先建立的git repository中。
