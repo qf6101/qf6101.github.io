@@ -11,11 +11,9 @@ highlighter: pygments
 title : Blog of Feng Qian
 tagline: Site Tagline
 author :
-  name : Feng Qian 钱烽
+  name : Feng Qian
   email : qf6101@gmail.com
   github : qf6101
-  scholar : "http://scholar.google.com/citations?user=5KurcogAAAAJ&hl=en"
-  feedburner : qf6101
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
