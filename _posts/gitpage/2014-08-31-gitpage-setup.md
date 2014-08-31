@@ -8,7 +8,7 @@ tags : [gitpage, jekyll, jekyll-bootstrap]
 
 ##Introduction
 
-本文简单描述了如何利用jekyll-bootstrap搭建一个基于gitpage (github page)的个人站点，搭建的环境是ubuntu。
+本文简要描述了如何利用jekyll-bootstrap搭建一个基于gitpage (github page)的个人站点，搭建的环境是ubuntu。
 
 ##Key steps
 
