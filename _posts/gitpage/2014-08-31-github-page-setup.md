@@ -8,7 +8,7 @@ tags : [github page, jekyll, jekyll-bootstrap]
 
 ##Introduction
 
-本文简要描述了如何利用jekyll-bootstrap搭建一个基于gitpage (github page)的个人站点，搭建的环境是ubuntu。
+本文简要描述了如何利用jekyll-bootstrap搭建一个基于github page的个人站点，搭建的环境是ubuntu。
 
 ##Basic Concepts
 
@@ -26,7 +26,7 @@ tags : [github page, jekyll, jekyll-bootstrap]
 
 (1) 为什么使用github page空间？只支持静态网页，适合作为博客空间。但相比传统博客服务 (e.g., csdn blog)，又更具灵活性。
 
-(2) 为什么使用jekyll？github page支持jekyll; markdown有那么点类似于latex，把内容与格式分开。
+(2) 为什么使用jekyll？github page支持jekyll; markdown有那么点类似于latex，把内容与格式分开，很省心。
 
 ##Key steps
 
