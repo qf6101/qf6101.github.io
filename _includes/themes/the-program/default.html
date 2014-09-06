@@ -11,6 +11,9 @@
 	<link href='{{ ASSET_PATH }}/css/style.css' rel="stylesheet" media="all">
 	<link href="http://feeds.feedburner.com/{{ site.author.feedbaname }}" rel="alternate" title="{{ page.title }}" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+	<script type="text/javascript"
+  		src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
 </head>
 <body>
 
@@ -45,6 +48,9 @@
 				<div class="misc vcard">
 					<h4>about</h4>
 					<ul>
+						<p class="logo">
+							<a href="http://scholar.google.com/citations?user=5KurcogAAAAJ&hl=en" title="publications on google scholar"><img src="/figures/portraits/my_photo.jpg" width="180" height="180"/><a/>
+						</p>
 						<li class="contact"><address><span class="author fn n">{{ site.author.name }}</span> - <span class="fn email">{{ site.author.email }}</span></address></li>
 						<li class="github"><a href="http://github.com/{{ site.author.github }}/" rel="me">github.com/{{ site.author.github }}</a></li>
 						<li class="gscholar"><a href="http://scholar.google.com/citations?user=5KurcogAAAAJ&hl=en" rel="me">publications on google scholar</a></li>
