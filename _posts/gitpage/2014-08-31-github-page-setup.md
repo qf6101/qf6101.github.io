@@ -30,7 +30,7 @@ tags : [github page, jekyll, jekyll-bootstrap]
 
 (2) 为什么使用jekyll？github page支持jekyll; markdown有那么点类似于latex，把内容与格式分开，很省心。
 
-(3) 为什么使用mathjax？支持latex语法；非图片格式的公式不易被拷贝。
+(3) 为什么使用mathjax？支持latex语法；矢量格式的公式分辨率高，不易被复制黏贴。
 
 ##Key steps
 
