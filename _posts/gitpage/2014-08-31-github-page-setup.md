@@ -30,6 +30,8 @@ tags : [github page, jekyll, jekyll-bootstrap]
 
 (2) 为什么使用jekyll？github page支持jekyll; markdown有那么点类似于latex，把内容与格式分开，很省心。
 
+(3) 为什么使用mathjax？支持latex语法；非图片格式的公式不易被拷贝。
+
 ##Key steps
 
 (1) 按照[github pages](https://pages.github.com/)官网说明建立一个github托管的git repository。尽量选择user site，而不是project site，否则jekyll-bootstrap可能会产生BASE_PATH设置导致的路径不一致问题。
@@ -50,7 +52,7 @@ tags : [github page, jekyll, jekyll-bootstrap]
 
 ##Miscellaneous
 
-技术博客其实就是技术日记，即使没有其他人看，坚持写，对自己的技术成长也仍然很有帮助。找工作时，也可以作为自己能力的proofs。个人觉得，写技术博客，最好采取下面两种策略。
+技术博客其实就是技术日记，即使没有其他人看，坚持写，对自己的技术成长也仍然很有帮助。个人觉得，写技术博客，最好采取下面两种策略。
 
 (1) 把长的内容写短。例如，用简短的篇幅讲清楚一篇论文的思想和方法。
 
