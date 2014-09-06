@@ -16,9 +16,13 @@ tags : [gradient boosting, GBDT]
 
 > gradient boosting：一种boosting算法框架，即利用gradient descent策略逐一训练弱分类器。
 
-> GBDT：一种gradient boosting的算法实现，即利用决策树来实现弱分类器。
+> GBDT：一种gradient boosting的算法实现，即利用决策树或回归树来实现弱分类器。
 
 ##Gradient Boosting
+
+(1) 输入training set：$(x, y) = \{x_i, y_i\}_1^N$
+
+(2) 
 
 $$F(x) = \sum_i^N h(x)$$
 

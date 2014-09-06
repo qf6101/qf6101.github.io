@@ -22,6 +22,8 @@ tags : [github page, jekyll, jekyll-bootstrap]
 
 > jekyll-bootstrap:	jekyll的模板框架，包含一些现成的模板，也可以基于它自定义模板。
 
+> mathjax：解析latex等符号的javascript库，通常请求它的cdn服务器进行动态解析。
+
 ##Motivations
 
 (1) 为什么使用github page空间？只支持静态网页，适合作为博客空间。但相比传统博客服务 (e.g., csdn blog)，又更具灵活性。
@@ -42,7 +44,7 @@ tags : [github page, jekyll, jekyll-bootstrap]
     find . -name ".git" | xargs rm -Rf    #删除jekyll-bootstrap的git配置
 
 
-(4) 根据个人需要，修改\$project_root\$/_config.yml、\$project_root\$/_includes/themes/the-program/default.html等页面中的内容。详细说明参见[jekyll-bootstrap](http://jekyllbootstrap.com/)官网。
+(4) 根据个人需要，修改\$project_root\$/_config.yml、\$project_root\$/_includes/themes/the-program/default.html等页面中的内容。例如，default.html页面中加入[mathjax](http://docs.mathjax.org/en/latest/start.html)的cdn地址。详细说明参见[jekyll-bootstrap](http://jekyllbootstrap.com/)官网。
 
 (5) 在jekyll serve或者sublime的markdown preview插件(可以使用[made-of-code](https://github.com/kumarnitin/made-of-code-tmbundle) color scheme)中预览下效果，最后把项目发布到早先建立的git repository中。
 
