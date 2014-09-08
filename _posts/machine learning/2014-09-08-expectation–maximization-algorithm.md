@@ -44,13 +44,15 @@ $$
 
 ##A More General Form
 
-事实上，E-step(**expectation**)是指计算对数似然的期望表达式，M-step(**maximization**)是指估计新的参数\\( \theta \\)来最大化对数似然的期望表达式值。因此，E-step可以直接表示成用后验概率来估计\\( q(z) \\)时，对数似然的期望形式(期望就是乘上分布函数求积分)。观察发现，这个期望表达式就是\\( \mathcal(L) (q;\theta) \\)的分子部分，而负熵则是分母部分。由于熵与参数变量\\( \theta \\)无关，在M-step中对参数求梯度时它是常数，梯度为0。
+事实上，E-step(**expectation**)是指计算对数似然的期望表达式，M-step(**maximization**)是指估计新的参数\\( \theta \\)来最大化对数似然的期望表达式值。因此，E-step可以直接表示成用后验概率来估计\\( q(z) \\)时，对数似然的期望形式(期望就是乘上分布函数求积分)。**E-step:**
 
 $$
 Q(\theta|\theta^{(i)}) = \operatorname{E}_{z \sim p(z|x;\theta^{(i)})}\left[ \ln p(x,z;\theta)  \right] = \sum\limits_{z} p(z|x;\theta^{(i)}) \ln p(x,z;\theta) = \mathcal{L} (q;\theta) - H(p(z|x;\theta^{(i)}))
 $$
 
-M-step就是最大化上面的期望表达式值，采用拉格朗日乘数法估计\\( \theta \\)(有时还会包含一些约束条件)。对\\( \theta \\)中的某具体参数求梯度时，其他参数即为常数，表达式会大大简化。
+观察发现，这个期望表达式就是\\( \mathcal(L) (q;\theta) \\)的分子部分，而负熵则是分母部分。由于熵与参数变量\\( \theta \\)无关，在M-step中对参数求梯度时它是常数，梯度为0；所以与上一节中的描述形式其实是一致的。
+
+M-step就是最大化上面的期望表达式值，采用拉格朗日乘数法估计\\( \theta \\)(有时还会包含一些约束条件)。对\\( \theta \\)中的某具体参数求梯度时，其他参数即为常数，表达式会大大简化。**M-step:**
 
 $$
 \theta^{(i+1)} = \underset{\theta}{\operatorname{arg\,max}} \ Q(\theta|\theta^{(i)}) \
