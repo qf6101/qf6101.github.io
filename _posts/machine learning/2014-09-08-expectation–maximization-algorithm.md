@@ -56,4 +56,4 @@ $$
 \theta^{(i+1)} = \underset{\theta}{\operatorname{arg\,max}} \ Q(\theta|\theta^{(i)}) \
 $$
 
-注意，极大似然估计时，基于样本独立同分布的假设，要将每个样本的对数似然相加\\( \sum\limits{t} \sum\limits_{z} p(z^{(t)}|x;\theta^{(i)}) \ln p(x^{(t)},z^{(t)};\theta) \\)。
+注意，极大似然估计时，基于样本独立同分布的假设，要将每个样本的对数似然相加\\( \sum\limits_{t} \sum\limits_{z} p(z^{(t)}|x;\theta^{(i)}) \ln p(x^{(t)},z^{(t)};\theta) \\)。
