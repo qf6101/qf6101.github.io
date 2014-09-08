@@ -20,11 +20,11 @@ tags : [gradient boosting, GBDT]
 
 ##Gradient Boosting Processes
 
-**Given:** (1) 训练集 \\( S_0 \triangleq (x, y) = \\{x_t, y_t\\}_{t=1}^N \\); (2) 损失函数 \\( L(\cdot) \\)
+**Given:** (1) 训练集 \\( S_0 := (x, y) = \\{x_t, y_t\\}_{t=1}^N \\); (2) 损失函数 \\( L(\cdot) \\)
 
 **Output:** 一组弱分类器的线性组合 \\( F(x) = \sum_{i=0}^M \rho_i h_i(x) \\)
 
-**Variable:** 前\\( j \\)个分类器的线性组合 (即\\( j \\)状态的最优模型) \\( F_j(x) \triangleq \sum_{i=0}^j \rho_i h_i(x) \\) where \\(j \geq i \\)
+**Variables:** 前\\( j \\)个分类器的线性组合 (即\\( j \\)状态的最优模型) \\( F_j(x) := \sum_{i=0}^j \rho_i h_i(x) \\) where \\(j \geq i \\)
 
 **Method:** 依次训练弱分类器 \\( h_i(x) \\)，并估计权重 \\(\rho_i \\)
 
