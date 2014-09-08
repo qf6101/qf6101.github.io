@@ -42,7 +42,7 @@ $$
 
 循环迭代，通过不断推高对数似然的下界，来最大化它。
 
-##A More General Form
+##A More General Inference
 
 事实上，E-step(**expectation**)是指计算对数似然的期望表达式，M-step(**maximization**)是指估计新的参数\\( \theta \\)来最大化对数似然的期望表达式值。因此，E-step可以直接表示成用后验概率来估计\\( q(z) \\)时，对数似然的期望形式(期望就是乘上分布函数求积分)。**E-step:**
 
