@@ -44,7 +44,7 @@ $$
 
 ##A More General Form
 
-事实上，E-step(**expectation**)是指计算对数似然的期望表达式，M-step(**maximization**)是指估计新的参数\\( \theta \\)来最大化对数似然的期望表达式值。因此，E-step可以直接表示成用后验概率来估计\\( q(z) \\)时，对数似然的期望形式(期望就是乘上分布函数求积分)。由于负熵与参数变量\\( \theta \\)无关(是常数，在M-step中对参数求梯度时为0)，因此与上节中的形式其实是一致的。
+事实上，E-step(**expectation**)是指计算对数似然的期望表达式，M-step(**maximization**)是指估计新的参数\\( \theta \\)来最大化对数似然的期望表达式值。因此，E-step可以直接表示成用后验概率来估计\\( q(z) \\)时，对数似然的期望形式(期望就是乘上分布函数求积分)。观察发现，这个期望表达式就是\\( \mathcal(L) (q;\theta) \\)的分子部分，而负熵则是分母部分。由于熵与参数变量\\( \theta \\)无关，在M-step中对参数求梯度时它是常数，梯度为0。
 
 $$
 Q(\theta|\theta^{(i)}) = \operatorname{E}_{z \sim p(z|x;\theta^{(i)})}\left[ \ln p(x,z;\theta)  \right] = \sum\limits_{z} p(z|x;\theta^{(i)}) \ln p(x,z;\theta) = \mathcal{L} (q;\theta) - H(p(z|x;\theta^{(i)}))
@@ -56,4 +56,4 @@ $$
 \theta^{(i+1)} = \underset{\theta}{\operatorname{arg\,max}} \ Q(\theta|\theta^{(i)}) \
 $$
 
-注意，极大似然估计时，基于样本间独立同分布的假设，要将每个样本的对数似然相加\\( \mathcal{L} (q(z);\theta) = \sum\limits_{i} \mathcal{L} (q(z^{(i)});\theta) \\)。
+注意，极大似然估计时，基于样本独立同分布的假设，要将每个样本的对数似然相加\\( \sum\limits{t} \sum\limits_{z} p(z^{(t)}|x;\theta^{(i)}) \ln p(x^{(t)},z^{(t)};\theta) \\)。
