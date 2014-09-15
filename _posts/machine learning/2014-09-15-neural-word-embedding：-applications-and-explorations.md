@@ -38,7 +38,7 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 <img src="/figures/neural-word-embedding/context-constrc-advantage2.png" align="left" width="450"/>
 
 <img src="/figures/neural-word-embedding/context-constrc-disadvantage1.png" align="left" hspace="20" width="450"/>
-<img src="/figures/neural-word-embedding/context-constrc-disadvantage2.png" align="left" width="450"/>
+<img src="/figures/neural-word-embedding/context-constrc-disadvantage2.png" align="left" width="450"/><>
 
 ###Application: Classification Task
 
