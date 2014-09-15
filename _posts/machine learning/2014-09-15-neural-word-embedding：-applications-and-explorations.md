@@ -24,7 +24,7 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 **>>>> Experiments and Discussions：**
 
-作者分别对两种上下文构造方法生成的训练集运行word2vec toolkit，并计算*k*-nn (*k*=40)，结果如下图所示(左侧是直接构造法的结果，右侧是间接构造法的结果)。
+作者分别对两种上下文构造方法生成的训练集运行word2vec toolkit，并计算$k$-nn ($k$=40)，结果如下图所示(左侧是直接构造法的结果，右侧是间接构造法的结果)。
 
 (1) 【长处】直接构造法的上下文距离较近，更侧重语法(搭配)；间接构造法的上下文距离较远，更侧重语义。
 
@@ -32,23 +32,25 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 (3) 【效率】间接构造法的效率更高：(3.1) 处理单元的数量有效减少；(3.2) 抽取关键词使得词频降低了(每个document中的word最多出现一次)，而word2vec toolkit会筛除低频词。
 
-根据应用场景和计算资源的不同，可以选择不同的上下文构造方式，或者可以把两种构造方法对应的word vector做连接(这里会有个处理平滑的问题)。个人觉得，matching task可能更适合直接构造法，而classification task可能更适合间接构造法。
-
 <img src="/figures/neural-word-embedding/context-constrc-advantage1.png" align="left" hspace="20" width="450"/>
+
 <img src="/figures/neural-word-embedding/context-constrc-advantage2.png" align="left" width="450"/>
 
 <img src="/figures/neural-word-embedding/context-constrc-disadvantage1.png" align="left" hspace="20" width="450"/>
-<img src="/figures/neural-word-embedding/context-constrc-disadvantage2.png" align="left" width="450"/><>
+
+<img src="/figures/neural-word-embedding/context-constrc-disadvantage2.png" align="left" width="450"/>
+
+根据应用场景和计算资源的不同，可以选择不同的上下文构造方式，或者可以把两种构造方法对应的word vector做连接(这里会有个处理平滑的问题)。个人觉得，matching task可能更适合直接构造法，而classification task可能更适合间接构造法。
 
 ###Application: Classification Task
 
-如果能直接训练出distributed paragraph representation，则文本分类的输入就可以替换为paragraph vectors。但是，在模型复杂度和语料库规模都有限的当下，还做不到这一点。即便如此，借助word vectors仍然可以提高分类准确度。较为intuitive的想法是解决一意多词的问题（plsa也可以）。例如，“乔布斯”和“Jobs”的语义距离较近（在大多数语料中它们表示同一个人），因此可以把它们映射到同一个id后，再作为文本分类器的输入。映射这件事可以用聚类算法(e.g., *k*-means algorithm)等算法完成，约束cluster size不要太大(根据分类的粒度粗细决定)。
+如果能直接训练出distributed paragraph representation，则文本分类的输入就可以替换为paragraph vectors。但是，在模型复杂度和语料库规模都有限的当下，还做不到这一点。即便如此，借助word vectors仍然可以提高分类准确度。较为intuitive的想法是解决一意多词的问题（plsa也可以）。例如，“乔布斯”和“Jobs”的语义距离较近（在大多数语料中它们表示同一个人），因此可以把它们映射到同一个id后，再作为文本分类器的输入。映射这件事可以用聚类算法(e.g., $k$-means algorithm)等算法完成，约束cluster size不要太大(根据分类的粒度粗细决定)。
 
 一种误区是：averaging weighted word vectors to paragraph vector。不可行的原因是：(1) word vectors的维度太低；(2) 只能span到一个affine space；(3) 缺少words在paragraph中的relations信息；因而不足以表达稀疏且高维的paragraph space。
 
 ###Application: Matching Task
 
-虽然简单把词向量加起来无法表达paragraph的完整语义，但在matching task中却已经足够了。前提是，通过IR等方式已经获得了一些靠谱的候选集。这很容易实现，从document的keywords中选出前5个权重最大的词，到倒排索引中做布尔查询即可。然后按照加权词向量的cosine值做降序排序即可返回top-*k* results (neither no less than the predefined threshld)。
+虽然简单把词向量加起来无法表达paragraph的完整语义，但在matching task中却已经足够了。前提是，通过IR等方式已经获得了一些靠谱的候选集。这很容易实现，从document的keywords中选出前5个权重最大的词，到倒排索引中做布尔查询即可。然后按照加权词向量的cosine值做降序排序即可返回top-$k$ results (neither no less than the predefined threshld)。
 
 词向量加权在这里起微调作用，因为paragraph最主要的部件(权重最大的5个关键词)在IR系统中已经匹配到。下面是匹配效果举例。
 
