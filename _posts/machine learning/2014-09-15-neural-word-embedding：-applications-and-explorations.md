@@ -34,10 +34,10 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 根据应用场景和计算资源的不同，可以选择不同的上下文构造方式，或者可以把两种构造方法对应的word vector做连接(这里会有个处理平滑的问题)。个人觉得，matching task可能更适合直接构造法，而classification task可能更适合间接构造法。
 
-![advantage example: n-gram for construct context](/figures/neural-word-embedding/context-constrc-advantage1.png)  
+![advantage example: n-gram for construct context](/figures/neural-word-embedding/context-constrc-advantage1.png)
 ![advantage example: keywords for construct context](/figures/neural-word-embedding/context-constrc-advantage2.png)
 
-![disadvantage example: n-gram for construct context](/figures/neural-word-embedding/context-constrc-disadvantage1.png)  
+![disadvantage example: n-gram for construct context](/figures/neural-word-embedding/context-constrc-disadvantage1.png)
 ![disadvantage example: keywords for construct context](/figures/neural-word-embedding/context-constrc-disadvantage2.png)
 
 ###Application: Classification Task
