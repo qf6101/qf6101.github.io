@@ -2,7 +2,7 @@
 layout: post
 category : machine learning
 tagline: "Supporting tagline"
-tags : [word embeeding, deep learning]
+tags : [word embedding, deep learning]
 ---
 {% include JB/setup %}
 
@@ -14,30 +14,31 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 ###Application: Context Construction
 
-作者使用word2vec toolkit[^1][^2][^3] (c语言版本) 来训练词向量。word2vec以两个换行符间的词序列作为一个处理单元，如果其中包含的词数超过1000，则将其分裂成两个单元，以此类推。算法会在处理单元内部滑动窗口（窗口大小一般为5-10）来获取上下文。
+作者使用word2vec toolkit[^1][^2][^3] (c语言版本) 来训练词向量。word2vec以两个换行符间的词序列作为一个处理单元，如果其中包含的词数超过1000，则将其分裂成两个单元，以此类推。算法会在处理单元内部滑动窗口(窗口大小一般为5-10)来获取上下文。
 
 作者比较了两种构造上下文的方法。
 
-1. 直接构造法：corpus为一个文件，每个sentence为一行，sentence经过分词后以空格分隔，按原始顺序排列。
+(1) 直接构造法：corpus为一个文件，每个sentence为一行，sentence经过分词后以空格分隔，按原始顺序排列。
 
-2. 间接构造法：corpus为一个文件，每个document为一行。对document做keyword extraction，得到words及其weights。挑选权重最大的前100个词，剩下的词以空格分隔，以任意顺序排列。调整窗口大小为50，即采用document中的所有词来构造其中每个词的上下文。
+(2) 间接构造法：corpus为一个文件，每个document为一行。对document做keyword extraction，得到words及其weights。挑选权重最大的前100个词，剩下的词以空格分隔，以任意顺序排列。调整窗口大小为50，即采用document中的所有词来构造其中每个词的上下文。
 
-**Experiments and Discussions：**
+**>>> Experiments and Discussions：**
 
 作者分别对两种上下文构造方法生成的训练集运行word2vec toolkit，并计算*k*-nn (*k*=40)，结果如下图所示(左侧是直接构造法的结果，右侧是间接构造法的结果)。
 
-1. 【长处】直接构造法的上下文距离较近，更侧重语法(搭配)；间接构造法的上下文距离较远，更侧重语义。
+(1) 【长处】直接构造法的上下文距离较近，更侧重语法(搭配)；间接构造法的上下文距离较远，更侧重语义。
 
-2. 【短处】直接构造法容易引入噪声相关词；间接构造法可能引入较远的语义。
+(2) 【短处】直接构造法容易引入噪声相关词；间接构造法可能引入较远的语义。
 
-3. 【效率】间接构造法的效率更高：(1) 处理单元的数量有效减少；(2) 抽取关键词使得词频降低了(每个document中的word最多出现一次)，而word2vec toolkit会筛除低频词。
+(3) 【效率】间接构造法的效率更高：(3.1) 处理单元的数量有效减少；(3.2) 抽取关键词使得词频降低了(每个document中的word最多出现一次)，而word2vec toolkit会筛除低频词。
 
 根据应用场景和计算资源的不同，可以选择不同的上下文构造方式，或者可以把两种构造方法对应的word vector做连接(这里会有个处理平滑的问题)。个人觉得，matching task可能更适合直接构造法，而classification task可能更适合间接构造法。
 
--> ![advantage example: n-gram for construct context](/figures/neural-word-embedding/context-constrc-advantage1.png) ![advantage example: keywords for construct context](/figures/neural-word-embedding/context-constrc-advantage2.png) <-
+<img src="/figures/neural-word-embedding/context-constrc-advantage1.png" align="left" hspace="20" width="450"/>
+<img src="/figures/neural-word-embedding/context-constrc-advantage2.png" align="left" width="450"/>
 
--> ![disadvantage example: n-gram for construct context](/figures/neural-word-embedding/context-constrc-disadvantage1.png)
-![disadvantage example: keywords for construct context](/figures/neural-word-embedding/context-constrc-disadvantage2.png) <-
+<img src="/figures/neural-word-embedding/context-constrc-disadvantage1.png" align="left" hspace="20" width="450"/>
+<img src="/figures/neural-word-embedding/context-constrc-disadvantage2.png" align="left" width="450"/>
 
 ###Application: Classification Task
 
@@ -51,15 +52,15 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 词向量加权在这里起微调作用，因为paragraph最主要的部件(权重最大的5个关键词)在IR系统中已经匹配到。下面是匹配效果举例。
 
--> ![matching example](/figures/neural-word-embedding/matching-example.png) <-
+<img src="/figures/neural-word-embedding/matching-example.png" align="left" width="900"/>  
 
 ###Exploration: Paragraph Embedding
 
 与word embedding相比，paragraph embedding必然还要加入词之间的相互关系。这里涉及到两个问题：(1) 怎样构造word relation；(2) 怎样设计NN-architecture。
 
-1. 怎样构造word relation？(1) 采用n-gram model是较为general的方法，但是由于paragraph space的稀疏性和高维特点，较小的n提供的信息不够，较大的n需要则bigger than bigger data来训练；(2) 通过统计模型估计词之间的依赖关系，建立小规模的word graph(比如基于句法结构的分析结果，或者从结果中抽取部分与关键词有关的依存关系)。
+(1) 怎样构造word relation？(1) 采用n-gram model是较为general的方法，但是由于paragraph space的稀疏性和高维特点，较小的n提供的信息不够，较大的n需要则bigger than bigger data来训练；(2) 通过统计模型估计词之间的依赖关系，建立小规模的word graph(比如基于句法结构的分析结果，或者从结果中抽取部分与关键词有关的依存关系)。
 
-2. 怎样设计NN-architecture？(1) 编码内容：bag of words、word graph、other attributes of paragraph；(2) 编码目标不应该是paragraph，而是topic，再由topics来生成paragraphs(反过来理解，就是paragraph space投影到一个或多个topic spaces)。
+(2) 怎样设计NN-architecture？(1) 编码内容：bag of words、word graph、other attributes of paragraph；(2) 编码目标不应该是paragraph，而是topic，再由topics来生成paragraphs(反过来理解，就是paragraph space投影到一个或多个topic spaces)。
 
 Le *et al.*[^4]利用skip-gram architecture，在word context中加入paragraph id，做出来的paragraph embedding效果并不是很好。从实验中也可以看出部分问题：(1) 因为考虑了the order of words ，就会面临数据稀疏的问题，而实验语料又是这么小规模；(2) paragraph的维度竟然跟word的维度是一样的，实验中都是400维；(3) 有关IR的实验其实假设了已经有了一堆靠谱的候选集，用weighted average of word vectors也能达到一样甚至更好的效果。
 
