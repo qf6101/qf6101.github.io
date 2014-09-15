@@ -22,7 +22,7 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 2. 间接构造法：corpus为一个文件，每个document为一行。对document做keyword extraction，得到words及其weights。挑选权重最大的前100个词，剩下的词以空格分隔，以任意顺序排列。调整窗口大小为50，即采用document中的所有词来构造其中每个词的上下文。
 
-- **Experiments and Discussions：**
+**Experiments and Discussions：**
 
 作者分别对两种上下文构造方法生成的训练集运行word2vec toolkit，并计算*k*-nn (*k*=40)，结果如下图所示(左侧是直接构造法的结果，右侧是间接构造法的结果)。
 
@@ -34,8 +34,7 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 根据应用场景和计算资源的不同，可以选择不同的上下文构造方式，或者可以把两种构造方法对应的word vector做连接(这里会有个处理平滑的问题)。个人觉得，matching task可能更适合直接构造法，而classification task可能更适合间接构造法。
 
-![advantage example: n-gram for construct context](/figures/neural-word-embedding/context-constrc-advantage1.png)
-![advantage example: keywords for construct context](/figures/neural-word-embedding/context-constrc-advantage2.png)
+![advantage example: n-gram for construct context](/figures/neural-word-embedding/context-constrc-advantage1.png)![advantage example: keywords for construct context](/figures/neural-word-embedding/context-constrc-advantage2.png)
 
 ![disadvantage example: n-gram for construct context](/figures/neural-word-embedding/context-constrc-disadvantage1.png)
 ![disadvantage example: keywords for construct context](/figures/neural-word-embedding/context-constrc-disadvantage2.png)
