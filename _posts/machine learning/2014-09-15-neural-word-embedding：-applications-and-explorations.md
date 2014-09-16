@@ -61,11 +61,11 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 (2) 怎样设计NN-architecture？(1) 编码内容：bag of words、word graph、other attributes of paragraph；(2) 编码目标不应该是paragraph，而是topic，再由topics来生成paragraphs(反过来理解，就是paragraph space投影到一个或多个topic spaces)。
 
-Le $et al.$[^4]利用skip-gram architecture，在word context中加入paragraph id，做出来的paragraph embedding效果并不是很好。从实验中也可以看出部分问题：(1) 因为考虑了the order of words ，就会面临数据稀疏的问题，而实验语料又是这么小规模；(2) paragraph的维度竟然跟word的维度是一样的，实验中都是400维；(3) 有关IR的实验其实假设了已经有了一堆靠谱的候选集，用weighted average of word vectors也能达到一样甚至更好的效果。
+Le $et\ al.$[^4]利用skip-gram architecture，在word context中加入paragraph id，做出来的paragraph embedding效果并不是很好。从实验中也可以看出部分问题：(1) 因为考虑了the order of words ，就会面临数据稀疏的问题，而实验语料又是这么小规模；(2) paragraph的维度竟然跟word的维度是一样的，实验中都是400维；(3) 有关IR的实验其实假设了已经有了一堆靠谱的候选集，用weighted average of word vectors也能达到一样甚至更好的效果。
 
 ###Exploration: Semantic Relations Based on Word Embedding
 
-还有一些文献考察了word vectors代数运算所表达的语义关系。例如，Levy $et al.$[^5]利用cosine运算的语义(语法)含义，构造了两种方法(3COSADD and 3COSMUL)来search analogy object，可以作为衡量词向量表达能力的度量方式。再例如，Fu $et al.$[^6]试图用向量差来衡量某种hierarchical关系，训练数据是一个非常小规模的层次树数据集，可能是直接拟合效果不行，作者用采用了聚类等方式来分情况拟合。
+还有一些文献考察了word vectors代数运算所表达的语义关系。例如，Levy $et\ al.$[^5]利用cosine运算的语义(语法)含义，构造了两种方法(3COSADD and 3COSMUL)来search analogy object，可以作为衡量词向量表达能力的度量方式。再例如，Fu $et\ al.$[^6]试图用向量差来衡量某种hierarchical关系，训练数据是一个非常小规模的层次树数据集，可能是直接拟合效果不行，作者用采用了聚类等方式来分情况拟合。
 
 直觉上讲，上述两种尝试都是基于这样的假设：word vectors是由其上下文编码的，上下文的差异(对应向量相减等运算)，描述了词之间的某种关系(层次关系、类比关系等)。但是，代数运算可表达的关系可能是复合的，无法分解的。因此，个人觉得这些尝试只能是点到为止，不应是主要研究方向。
 
