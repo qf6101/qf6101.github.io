@@ -30,7 +30,7 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 (2) 【短处】直接构造法容易引入噪声相关词；间接构造法可能引入较远的语义。
 
-(3) 【效率】间接构造法的效率更高：(3.1) 处理单元的数量有效减少；(3.2) 抽取关键词使得词频降低了(每个document中的word最多出现一次)，而word2vec toolkit会筛除低频词。
+(3) 【效率】间接构造法的效率更高：(a) 处理单元的数量有效减少；(b) 抽取关键词使得词频降低了(每个document中的word最多出现一次)，而word2vec toolkit会筛除低频词。
 
 根据应用场景和计算资源的不同，可以选择不同的上下文构造方式，或者可以把两种构造方法对应的word vector做连接(这里会有个处理平滑的问题)。个人觉得，语义粒度较细的matching task可能更适合直接构造法，而语义粒度较粗的classification task可能更适合间接构造法。
 
@@ -54,9 +54,9 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 与word embedding相比，paragraph embedding必然还要加入词之间的相互关系。这里涉及到两个问题：(1) 怎样构造word relation；(2) 怎样设计NN-architecture。
 
-(1) 怎样构造word relation？(1) 采用n-gram model是较为general的方法，但是由于paragraph space的稀疏性和高维特点，较小的n提供的信息不够，较大的n则需要bigger than bigger data来训练；(2) 通过统计模型估计词之间的依赖关系，建立小规模的word graph(例如，基于句法结构的分析结果，从中抽取与关键词有关的依存关系)。
+(1) 怎样构造word relation？(a) 采用n-gram model是较为general的方法，但是由于paragraph space的稀疏性和高维特点，较小的n提供的信息不够，较大的n则需要bigger than bigger data来训练；(b) 通过统计模型估计词之间的依赖关系，建立小规模的word graph(例如，基于句法结构的分析结果，从中抽取与关键词有关的依存关系)。
 
-(2) 怎样设计NN-architecture？(1) 编码内容：bag of words、word graph、other attributes of paragraph；(2) 编码目标不应该是paragraph，而是topic，再由topics来生成paragraphs(反过来理解，就是paragraph space投影到一个或多个topic spaces)。
+(2) 怎样设计NN-architecture？(a) 编码内容：bag of words、word graph、other attributes of paragraph；(b) 编码目标不应该是paragraph，而是topic，再由topics来生成paragraphs(反过来理解，就是paragraph space投影到一个或多个topic spaces)。
 
 Le $et\ al.$[^4]利用skip-gram architecture，在word context中加入paragraph id，做出来的paragraph embedding效果并不是很好。从实验中也可以看出部分问题：(1) 因为考虑了the order of words ，就会面临数据稀疏的问题，而实验语料又是这么小规模；(2) paragraph的维度竟然跟word的维度是一样的，实验中都是400维；(3) 有关IR的实验其实假设了已经有了一堆靠谱的候选集，用weighted average of word vectors也能达到一样甚至更好的效果。
 
