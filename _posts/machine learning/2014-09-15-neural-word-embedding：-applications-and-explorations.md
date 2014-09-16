@@ -32,15 +32,12 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 (3) 【效率】间接构造法的效率更高：(3.1) 处理单元的数量有效减少；(3.2) 抽取关键词使得词频降低了(每个document中的word最多出现一次)，而word2vec toolkit会筛除低频词。
 
-<img src="/figures/neural-word-embedding/context-constrc-advantage1.png" align="left" hspace="20" width="450"/>
-
-<img src="/figures/neural-word-embedding/context-constrc-advantage2.png" align="left" width="450"/>
-
-<img src="/figures/neural-word-embedding/context-constrc-disadvantage1.png" align="left" hspace="20" width="450"/>
-
-<img src="/figures/neural-word-embedding/context-constrc-disadvantage2.png" align="left" width="450"/>
-
 根据应用场景和计算资源的不同，可以选择不同的上下文构造方式，或者可以把两种构造方法对应的word vector做连接(这里会有个处理平滑的问题)。个人觉得，matching task可能更适合直接构造法，而classification task可能更适合间接构造法。
+
+<img src="/figures/neural-word-embedding/context-constrc-advantage1.png" align="left" hspace="20" width="450"/>
+<img src="/figures/neural-word-embedding/context-constrc-advantage2.png" align="left" width="450"/>
+<img src="/figures/neural-word-embedding/context-constrc-disadvantage1.png" align="left" hspace="20" width="450"/>
+<img src="/figures/neural-word-embedding/context-constrc-disadvantage2.png" align="left" width="450"/>
 
 ###Application: Classification Task
 
@@ -60,15 +57,15 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 与word embedding相比，paragraph embedding必然还要加入词之间的相互关系。这里涉及到两个问题：(1) 怎样构造word relation；(2) 怎样设计NN-architecture。
 
-(1) 怎样构造word relation？(1) 采用n-gram model是较为general的方法，但是由于paragraph space的稀疏性和高维特点，较小的n提供的信息不够，较大的n需要则bigger than bigger data来训练；(2) 通过统计模型估计词之间的依赖关系，建立小规模的word graph(比如基于句法结构的分析结果，或者从结果中抽取部分与关键词有关的依存关系)。
+(1) 怎样构造word relation？(1) 采用n-gram model是较为general的方法，但是由于paragraph space的稀疏性和高维特点，较小的n提供的信息不够，较大的n则需要bigger than bigger data来训练；(2) 通过统计模型估计词之间的依赖关系，建立小规模的word graph(例如，基于句法结构的分析结果，从中抽取与关键词有关的依存关系)。
 
 (2) 怎样设计NN-architecture？(1) 编码内容：bag of words、word graph、other attributes of paragraph；(2) 编码目标不应该是paragraph，而是topic，再由topics来生成paragraphs(反过来理解，就是paragraph space投影到一个或多个topic spaces)。
 
-Le *et al.*[^4]利用skip-gram architecture，在word context中加入paragraph id，做出来的paragraph embedding效果并不是很好。从实验中也可以看出部分问题：(1) 因为考虑了the order of words ，就会面临数据稀疏的问题，而实验语料又是这么小规模；(2) paragraph的维度竟然跟word的维度是一样的，实验中都是400维；(3) 有关IR的实验其实假设了已经有了一堆靠谱的候选集，用weighted average of word vectors也能达到一样甚至更好的效果。
+Le $et al.$[^4]利用skip-gram architecture，在word context中加入paragraph id，做出来的paragraph embedding效果并不是很好。从实验中也可以看出部分问题：(1) 因为考虑了the order of words ，就会面临数据稀疏的问题，而实验语料又是这么小规模；(2) paragraph的维度竟然跟word的维度是一样的，实验中都是400维；(3) 有关IR的实验其实假设了已经有了一堆靠谱的候选集，用weighted average of word vectors也能达到一样甚至更好的效果。
 
 ###Exploration: Semantic Relations Based on Word Embedding
 
-还有一些文献考察了word vectors代数运算所表达的语义关系。例如，Levy *et al.*[^5]利用cosine运算的语义(语法)含义，构造了两种方法(3COSADD and 3COSMUL)来search analogy object，可以作为衡量词向量表达能力的度量方式。再例如，Fu *et al.*[^6]试图用向量差来衡量某种hierarchical关系，训练数据是一个非常小规模的层次树数据集，可能是直接拟合效果不行，作者用采用了聚类等方式来分情况拟合。
+还有一些文献考察了word vectors代数运算所表达的语义关系。例如，Levy $et al.$[^5]利用cosine运算的语义(语法)含义，构造了两种方法(3COSADD and 3COSMUL)来search analogy object，可以作为衡量词向量表达能力的度量方式。再例如，Fu $et al.$[^6]试图用向量差来衡量某种hierarchical关系，训练数据是一个非常小规模的层次树数据集，可能是直接拟合效果不行，作者用采用了聚类等方式来分情况拟合。
 
 直觉上讲，上述两种尝试都是基于这样的假设：word vectors是由其上下文编码的，上下文的差异(对应向量相减等运算)，描述了词之间的某种关系(层次关系、类比关系等)。但是，代数运算可表达的关系可能是复合的，无法分解的。因此，个人觉得这些尝试只能是点到为止，不应是主要研究方向。
 
@@ -84,4 +81,4 @@ Le *et al.*[^4]利用skip-gram architecture，在word context中加入paragraph 
 
 [^5]: Omer Levy and Yoav Goldberg. Linguistic Regularities in Sparse and ExplicitWord Representations. In Proceedings of CoNLL, 2014.
 
-[^6]: Ruiji Fu, *et al.* Learning Semantic Hierarchies viaWord Embeddings. In Proceedings of ACL, 2014.
+[^6]: Ruiji Fu, $et al.$ Learning Semantic Hierarchies viaWord Embeddings. In Proceedings of ACL, 2014.
