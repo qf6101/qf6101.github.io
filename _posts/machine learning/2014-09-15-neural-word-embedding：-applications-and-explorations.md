@@ -32,7 +32,7 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 (3) 【效率】间接构造法的效率更高：(3.1) 处理单元的数量有效减少；(3.2) 抽取关键词使得词频降低了(每个document中的word最多出现一次)，而word2vec toolkit会筛除低频词。
 
-根据应用场景和计算资源的不同，可以选择不同的上下文构造方式，或者可以把两种构造方法对应的word vector做连接(这里会有个处理平滑的问题)。个人觉得，matching task可能更适合直接构造法，而classification task可能更适合间接构造法。
+根据应用场景和计算资源的不同，可以选择不同的上下文构造方式，或者可以把两种构造方法对应的word vector做连接(这里会有个处理平滑的问题)。个人觉得，语义粒度较细的matching task可能更适合直接构造法，而语义粒度较粗的classification task可能更适合间接构造法。
 
 <img src="/figures/neural-word-embedding/context-constrc-advantage1.png" align="left" hspace="20" width="450"/>
 <img src="/figures/neural-word-embedding/context-constrc-advantage2.png" align="left" width="450"/>
