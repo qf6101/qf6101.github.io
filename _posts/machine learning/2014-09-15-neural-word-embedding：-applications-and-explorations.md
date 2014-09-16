@@ -78,4 +78,4 @@ Le $et\ al.$[^4]利用skip-gram architecture，在word context中加入paragraph
 
 [^5]: Omer Levy and Yoav Goldberg. Linguistic Regularities in Sparse and ExplicitWord Representations. In Proceedings of CoNLL, 2014.
 
-[^6]: Ruiji Fu, $et al.$ Learning Semantic Hierarchies viaWord Embeddings. In Proceedings of ACL, 2014.
+[^6]: Ruiji Fu, $et\ al.$ Learning Semantic Hierarchies viaWord Embeddings. In Proceedings of ACL, 2014.
