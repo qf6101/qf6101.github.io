@@ -48,7 +48,7 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 词向量加权在这里起微调作用，因为paragraph最主要的部件(权重最大的5个关键词)在IR系统中已经匹配到。下面是匹配效果举例。
 
-<img src="/figures/neural-word-embedding/matching-example.png" align="left" width="650"/>  
+<img src="/figures/neural-word-embedding/matching-example.png" align="left" width="700"/>  
 
 ###Exploration: Paragraph Embedding
 
