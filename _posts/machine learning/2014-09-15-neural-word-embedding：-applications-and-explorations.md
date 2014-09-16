@@ -58,7 +58,7 @@ Neural word embedding使用上下文来编码word，编码信息在词之间发�
 
 (2) 怎样设计NN-architecture？(a) 编码内容：bag of words、word graph、other attributes of paragraph；(b) 编码目标不应该是paragraph，而是topic，再由topics来生成paragraphs(反过来理解，就是paragraph space投影到一个或多个topic spaces)。
 
-Le $et\ al.$[^4]利用skip-gram architecture，在word context中加入paragraph id，做出来的paragraph embedding效果并不是很好。从实验中也可以看出部分问题：(1) 因为考虑了the order of words ，就会面临数据稀疏的问题，而实验语料又是这么小规模；(2) paragraph的维度竟然跟word的维度是一样的，实验中都是400维；(3) 有关IR的实验其实假设了已经有了一堆靠谱的候选集，用weighted average of word vectors也能达到一样甚至更好的效果。
+Le $et\ al.$[^4]利用skip-gram architecture，在word context中加入paragraph id，做出来的paragraph embedding效果并不是很好。从实验中也可以看出部分问题：(1) 因为考虑了the order of words，就会面临数据稀疏的问题，而实验语料又是这么小规模；(2) paragraph的维度竟然跟word的维度是一样的，实验中都是400维；(3) 有关IR的实验其实假设了已经有了一堆靠谱的候选集，用weighted average of word vectors也能达到一样甚至更好的效果。
 
 ###Exploration: Semantic Relations Based on Word Embedding
 
