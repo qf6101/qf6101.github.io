@@ -30,7 +30,7 @@ TAAT采用纵向扫描的策略：从上到下依次遍历每个posting list，�
 
 **(3) Document-at-a-time (DAAT)**
 
-DAAT采用横向扫描的策略：(a) 事先将posing list中的documents按doc id升序排序，并对每个posting list都保留一个当前位置指针；(b)对于所有的当前位置指针，取doc id最小的那个，计算该document的得分，并将相应的指针往后移动一位；(c) 重复上述b过程直至所有posting list都被遍历完。最后将documents按得分逆序输出。
+DAAT采用横向扫描的策略：(a) <font color="red">事先将posing list中的documents按doc id升序排序，并对每个posting list都保留一个当前位置指针；</font>(b)对于所有的当前位置指针，取doc id最小的那个，计算该document的得分，并将相应的指针往后移动一位；(c) 重复上述b过程直至所有posting list都被遍历完。最后将documents按得分逆序输出。
 
 <img src="/figures/subscribe-top–k-related-twitters-to-news-stories/query-processing.png" width="800"/>
 
@@ -66,7 +66,7 @@ $$
 
 **(3) skipping in DAAT**
 
-DAAT的skip技术采用迭代的方式，每次迭代都试图skip a batch of postings (注意与TAAT不同，这次是postings，不是posting lists)。为了这个目的，每次迭代时都要对posting lists重新排序，排序依据是各个posting lists当前指针指向的doc id(升序顺序)。DAAT每次找一个满足下面条件的pivot list $L_i$，并把pivot list当前指针指向的posting称为pivot document。可以skip掉$L_j$中所有doc id小于pivot document的postings，因为它们的最大值(UB)都不会大于$A_k$。
+DAAT的skip技术采用迭代的方式，每次迭代都试图skip a batch of postings (注意与TAAT不同，这次是postings，不是posting lists)。<font color="red">为了这个目的，每次迭代时都要对posting lists重新排序，排序依据是各个posting lists当前指针指向的doc id(升序顺序)。</font>DAAT每次找一个满足下面条件的pivot list $L_i$，并把pivot list当前指针指向的posting称为pivot document。可以skip掉$L_j$中所有doc id小于pivot document的postings，因为它们的最大值(UB)都不会大于$A_k$。
 
 $$
 \sum \limits_{j < i} u_j \cdot ms(L_j) \leq A_k
@@ -106,7 +106,7 @@ $$
 
 **(a) skipping in pub-sub TAAT**
 
-首先定义story $s$中min-heap的顶部元素为$\mu_s$(即与$s$最不相似的那个term)。这次的UB有点loose了，新进来的term要比每个$\mu_s$都更不相似，才能skip整条posting list。余下的posting lists也无法保证，只能一条一条评估。
+<font color="red">首先定义story $s$中min-heap的顶部元素为$\mu_s$(即与$s$最不相似的那个term)。</font>这次的UB有点loose了，新进来的term要比每个$\mu_s$都更不相似，才能skip整条posting list。余下的posting lists也无法保证，只能一条一条评估。
 
 $$
 A_1 + \sum\limits_{j \geq i} u_j \cdot ms(L_j) \leq \operatorname{min}\limits_{s \in L_i} \mu_s
