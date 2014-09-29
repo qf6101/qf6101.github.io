@@ -8,7 +8,7 @@ tags : [information retrieval, query processing, skipping technique]
 
 ##Introduction
 
-本文简要描述了Shraer $et\ al.$在VLDB 2013上的一个工作[^1]：依据内容相关性，将twitters实时注册到news stories中(billions pageviews per day)，维护每个story始终有top-$k$个最相关的twitters。业务上做扩展的情况，比如LBS情景中，用于挑选海量信息注册到动态地理位置区域，应用范围非常广泛。
+本文简要描述了Shraer $et\ al.$在VLDB 2013上的一个工作[^1]：依据内容相关性，将twitters实时注册到news stories中(billions pageviews per day)，维护每个story始终有top-$k$个最相关的twitters。业务上做扩展的情况很多，例如在LBS场景中，可以用来筛选海量信息，将其注册到动态地理位置区域。
 
 本文分为两个部分：(1) primitive techniques：描述信息检索系统中的两种查询处理策略(TAAT and DAAT)以及查询处理中的skipping技术；(2) their contributions[^1]：描述在常规查询处理的基础上做改进，构建一个top-$k$ publish-subscribe系统。
 
@@ -98,7 +98,7 @@ $$
 
 **Methods：** variations of TAAT and DAAT
 
-可以发现，任务发生了变化，不需要返回最相关的前$k$个stories了，而是更新相关stories的min-heaps。这样，在原有查询处理的基础上只多了一步操作，就是在计算twitters与stories的相似度后，把twitters往stories的min-heap里扔进去。但是skip conditions却不满足了，需要改进，下面两节会做相关描述。
+可以发现，任务发生了变化，不需要返回最相关的前$k$个stories了，而是更新相关stories的min-heaps。这样，在原有查询处理的基础上只多了一步操作，就是在计算twitters与stories的相似度后，把twitters往stories的min-heap里扔进去。<font color="red">需要牢记一点，就算story $s$在twitter $u$的top-$k$ related stories之中，反之却不一定。</font> 因此原有的skip conditions不满足了，需要改进，下面两节会做相关描述。
 
 最后一个问题，如果有新的story进来，则要在插入story index前先去一个小规模但比较新的twitter index(需要维护这样一个索引)中做下传统查询处理。论文[1]的图1中有展示这个architecture。
 
