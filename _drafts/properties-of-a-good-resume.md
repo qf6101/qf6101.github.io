@@ -21,7 +21,7 @@ tags : [resume]
 	(c) python库：numpy, sicpy, pandas, etc.
 	(d) java库：lucene, mtj, jetty, etc.
 	(e) 算法库：libsvm, libfm, mallet, stanford nlp, caffe, snap, igraph, etc.
-	(f) 其他：shell/vim, CMake/anaconda/ant/maven, git/svn, gephi, etc.
+	(f) miscellaneous：shell/vim, CMake/anaconda/ant/maven, git/svn, gephi, etc.
 
 (6) 熟悉实践过程：data stories -> ETL -> prototype -> production
 
