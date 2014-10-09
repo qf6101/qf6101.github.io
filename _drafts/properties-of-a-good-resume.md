@@ -20,6 +20,7 @@ tags : [resume]
 	(f) 其他：shell/vim, CMake/anaconda/ant/maven, git/svn, gephi, etc.
 
 (6) 熟悉实践过程：data stories -> ETL -> prototype -> production
-(7) solid proofs to the above points (e.g., github projects)
-(8) 用心排版的简历
-(9) 博士还要看publications and patents
+(7) 探索能力：发现新的业务点、业务中的算法建模、算法的改进
+(8) solid proofs to the above points (e.g., github projects)
+(9) 用心排版的简历
+(10) 博士还要看publications and patents
