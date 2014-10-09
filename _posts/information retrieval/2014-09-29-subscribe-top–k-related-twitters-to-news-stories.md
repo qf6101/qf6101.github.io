@@ -8,7 +8,7 @@ tags : [information retrieval, query processing, skipping technique]
 
 ##Introduction
 
-本文简要描述了Shraer $et\ al.$在VLDB 2013上的一个工作[^1]：依据内容相关性，将twitters实时注册到news stories中(billions pageviews per day)，维护每个story始终有top-$k$个最相关的twitters。业务上做扩展的情况很多，例如在LBS场景中，可以用来筛选海量信息，将其注册到动态地理位置区域。
+本文简要描述了Shraer $et\ al.$在VLDB 2013上的一个工作[^1]：依据内容相关性，将twitters实时注册到news stories中(billions of pageviews per day)，维护每个story始终有top-$k$个最相关的twitters。业务上做扩展的情况很多，例如在LBS场景中，可以用来筛选海量信息，将其注册到动态地理位置区域。
 
 本文分为两个部分：(1) primitive techniques：描述信息检索系统中的两种查询处理策略(TAAT and DAAT)以及查询处理中的skipping技术；(2) their contributions[^1]：描述在常规查询处理的基础上做改进，构建一个top-$k$ publish-subscribe系统。
 

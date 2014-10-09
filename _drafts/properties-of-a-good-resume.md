@@ -1,3 +1,11 @@
+---
+layout: post
+category : experience
+tagline: "Supporting tagline"
+tags : [resume]
+---
+{% include JB/setup %}
+
 (1) 知名互联网公司的工作和实习经历
 (2) 工作经历或研究经历(项目内容及个人职责)高度符合职位要求
 (3) 丰富的开发技能，并在项目实践中有量化体现(linux, python, c/c++, java, R, etc.)
