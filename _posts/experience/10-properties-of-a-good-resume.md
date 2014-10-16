@@ -6,8 +6,6 @@ tags : [resume]
 ---
 {% include JB/setup %}
 
-##简历
-
 (1) 知名互联网公司的工作和实习经历
 
 (2) 工作经历或研究经历(项目内容及个人职责)高度符合职位要求
@@ -20,7 +18,7 @@ tags : [resume]
 
 	(a) 大数据框架：hadoop, spark, graphlab, etc.
 	(b) c/c++库：boost, blas, etc.
-	(c) python库：numpy, sicpy, pandas, etc.
+	(c) python库：numpy, sicpy, pandas, scikit-learn, etc.
 	(d) java库：lucene, mtj, jetty, etc.
 	(e) 算法库：libsvm, libfm, mallet, stanford nlp, caffe, snap, igraph, etc.
 	(f) miscellaneous：shell/vim, CMake/anaconda/ant/maven, git/svn, gephi, etc.
@@ -34,11 +32,3 @@ tags : [resume]
 (9) 用心排版的简历
 
 (10) 博士还要看publications and patents
-
-##面试
-
-(1) 懂得的算法够多、够复杂、知道细节、有过实践(应用到产品、特征选择、参数选择技巧等)
-
-(2) 知道面试官的提问意图，不知道就问清楚
-
-(3) 在有限时间内把自己的优势表现出来
