@@ -14,7 +14,7 @@ word embedding是指通过低维向量来编码词汇，把词典嵌入到一个
 
 (1) language model才是终极目标
 
-统计NLP的一个重要任务是训练language model，用以估计给定上下文情况下任意词汇出现的概率\\( P(w|content) \\)，从而进一步估计paragraphs的概率。比较熟知方法比如log linear model，而另一种重要的方法就是神经网络。神经网络方法中，隐藏层会编码词汇以及词汇的组合关系，这里的词汇编码其实就是word vectors。
+统计NLP的一个重要任务是训练language model，用以估计给定上下文情况下任意词汇出现的概率$P(w|content)$，从而进一步估计paragraphs的概率。比较熟知方法比如log linear model，而另一种重要的方法就是神经网络。神经网络方法中，隐藏层会编码词汇以及词汇的组合关系，这里的词汇编码其实就是word vectors。
 
 那么问题来了，要模拟某种自然语言的分布，需要一个非常复杂和deep的神经网络架构，一次性训练这个网络并不是很好的办法。word2vec toolkit的作者Mikolov提出首先构建一个简单的网络来编码出质量较高的word vectors，第二步才把这些词向量扔到复杂神经网络中进一步训练language model。
 
@@ -30,7 +30,7 @@ word embedding是指通过低维向量来编码词汇，把词典嵌入到一个
 
 大多数做word embedding的文献都围绕着两个问题展开研究：architecture and efficiency，下面做些简单介绍。
 
-**- ARCHITECTURES**
+**ARCHITECTURES**
 
 (1) CBOW and skip-gram
 
@@ -44,7 +44,7 @@ skip-gram模型是反过来用词汇预测上下文，有什么好处呢？在�
 
 GloVe模型[^3]在经验基础上，进一步明确了词向量训练的代数目标，就是使得两个词向量的点乘逼近一个词在另一个词上下文中出现的概率。GloVe模型首先统计出共现矩阵，然后再基于该矩阵最小化上面两个量之间的差异。相比CBOW模型和skip-gram模型，GloVe只是用了全局统计信息(所以叫global vector model)，可能会丢掉一些细节信息，而且模型优化的余地较小(感觉有点hand-craft了)，也会受高频词的影响(不过这是可以简单改进的)。
 
-**- EFFICIENCY**
+**EFFICIENCY**
 
 神经网络后端的softmax是计算复杂度的瓶颈。为了提高word embedding的效率，除了简化网络规模外，降低softmax的训练复杂度是至关重要的。softmax最大的问题是需要更新的参数太多了，与词典规模相同。计算梯度时，做整体归一化的计算量也有相同的规模。下面介绍两种解决方法。
 
