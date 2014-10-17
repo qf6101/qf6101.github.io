@@ -46,7 +46,7 @@ GloVe模型[^3]在经验基础上，进一步明确了词向量训练的代数�
 
 **EFFICIENCY**
 
-神经网络后端的softmax是计算复杂度的瓶颈。为了提高word embedding的效率，除了简化网络规模外，降低softmax的训练复杂度是至关重要的。softmax最大的问题是需要更新的参数太多了，与词典规模相同。计算梯度时，做整体归一化的计算量也有相同的规模：$p\(y^{\(i\)} = j \| x^{\(i\)} ; \theta\) = \frac{e^{\theta_j^T x^{\(i\)}}}{\sum_{l=1}^k e^{ \theta_l^T x^{\(i\)}} }$ ($x_i$是上下文向量，$y_i$是词索引，$\theta$是词向量，$k$是词典规模)。下面介绍两种解决方法。
+神经网络后端的softmax是计算复杂度的瓶颈。为了提高word embedding的效率，除了简化网络规模外，降低softmax的训练复杂度是至关重要的。softmax最大的问题是需要更新的参数太多了，与词典规模相同。计算梯度时，做整体归一化的计算量也有相同的规模：$p\(y = j \| x ; \theta\) = \frac{e^{\theta_j^t x}{\sum_{l=1}^k e^{ \theta_l^t x}$ ($x$是上下文向量，$y$是词索引，$\theta$是词向量，$k$是词典规模)。下面介绍两种解决方法。
 
 (1) hierarchical softmax
 
