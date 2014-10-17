@@ -14,7 +14,7 @@ word embedding是指通过低维向量来编码词汇，把词典嵌入到一个
 
 (1) language model才是终极目标
 
-统计NLP的一个重要任务是训练language model，用以估计给定上下文情况下任意词汇出现的概率 $P(w|content)$，从而进一步估计paragraphs的概率。比较熟知方法比如log linear model，而另一种重要的方法就是神经网络。神经网络方法中，隐藏层会编码词汇以及词汇的组合关系，这里的词汇编码其实就是word vectors。
+统计NLP的一个重要任务是训练language model，用以估计给定上下文情况下任意词汇出现的概率\\( P(w|content) \\)，从而进一步估计paragraphs的概率。比较熟知方法比如log linear model，而另一种重要的方法就是神经网络。神经网络方法中，隐藏层会编码词汇以及词汇的组合关系，这里的词汇编码其实就是word vectors。
 
 那么问题来了，要模拟某种自然语言的分布，需要一个非常复杂和deep的神经网络架构，一次性训练这个网络并不是很好的办法。word2vec toolkit的作者Mikolov提出首先构建一个简单的网络来编码出质量较高的word vectors，第二步才把这些词向量扔到复杂神经网络中进一步训练language model。
 
