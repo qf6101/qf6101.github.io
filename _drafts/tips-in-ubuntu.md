@@ -12,12 +12,13 @@ tags : [virtualbox, jetbrains]
 
 	mount -t vboxsf share /mnt/share
 
+##virtualbox hot key
+
+改成win键，不会与软件的快捷键冲突。
+
 ##jetbrains desktop
 
 在启动shell脚本开始处加入(after "Create Desktop Entry...")。
 
 	export JDK_HOME='your java home folder'
 
-##hot key
-
-改成win键，不会与软件的快捷键冲突。
