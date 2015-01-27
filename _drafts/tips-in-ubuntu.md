@@ -22,3 +22,7 @@ tags : [virtualbox, jetbrains]
 
 	export JDK_HOME='your java home folder'
 
+##Problem: Waiting for headers when installing
+
+删除/var/cache/apt/archives/partial文件夹，重新安装
+
