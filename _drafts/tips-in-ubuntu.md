@@ -1,5 +1,4 @@
-﻿---
-layout: post
+﻿yout: post
 category : ubuntu
 tagline: "Supporting tagline"
 tags : [virtualbox, jetbrains]
@@ -10,7 +9,7 @@ tags : [virtualbox, jetbrains]
 
 在文件 /etc/rc.local 中（用root用户）追加如下命令。
 
-	mount -t vboxsf share /mnt/share
+	mount -t vboxsf -o uid=1000,gid=1000 share /mnt/share # first mkdir /mnt/share, 1000来自于id -u
 
 ##virtualbox hot key
 
@@ -25,4 +24,3 @@ tags : [virtualbox, jetbrains]
 ##Problem: Waiting for headers when installing
 
 删除/var/cache/apt/archives/partial文件夹，重新安装
-
