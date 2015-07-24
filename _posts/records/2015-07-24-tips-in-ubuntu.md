@@ -1,6 +1,6 @@
 ---
 layout: post
-category : gitpage
+category : records
 tagline: "Supporting tagline"
 tags : [github page, jekyll, jekyll-bootstrap]
 ---
