@@ -1,4 +1,5 @@
-﻿yout: post
+﻿---
+layout: post
 category : records
 tagline: "Supporting tagline"
 tags : [virtualbox, jetbrains]
