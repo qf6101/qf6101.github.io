@@ -2,7 +2,7 @@
 layout: post
 category : records
 tagline: "Supporting tagline"
-tags : [github page, jekyll, jekyll-bootstrap]
+tags : [linux, ubuntu]
 ---
 {% include JB/setup %}
 
