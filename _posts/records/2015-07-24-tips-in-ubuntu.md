@@ -1,8 +1,8 @@
-﻿---
+---
 layout: post
-category : records
+category : gitpage
 tagline: "Supporting tagline"
-tags : [virtualbox, jetbrains]
+tags : [github page, jekyll, jekyll-bootstrap]
 ---
 {% include JB/setup %}
 
