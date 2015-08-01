@@ -56,4 +56,4 @@ $$
 
 [^2]: Alex Rodriguez $et\ al.$ Clustering by fast search and find of density peaks. Science, 27 June 2014.
 
-[^3]: Hao Huang $et\ al.$ CLOVER: a faster prior-free approach to rare-category detection. Knowledge and information systems 35 (3), 713-736.
+[^3]: Hao Huang $et\ al.$ CLOVER: a faster prior-free approach to rare-category detection. Knowledge and information systems 35 (3), 713-736, 2013.
